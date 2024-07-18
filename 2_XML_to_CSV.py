@@ -1,37 +1,6 @@
-"""
-import sys
-
-if len(sys.argv) != 2:
-  print("Syntax: vpython run.py <xml_file_generated_by_lint>")
-  sys.exit(1)
-
-with open(sys.argv[1], "r") as ptr:
-  contents = ptr.readlines()
-
-contents = [ line for line in contents if not line.strip().startswith("--- ") and  line.strip().startswith("<")]
-contents.insert(0, "<lint>")
-contents.append("</lint>")
-with open("3_vcast_test.xml", "w") as ptr:
-  ptr.writelines(contents)
-
-from xml.etree import ElementTree
-tree = ElementTree.parse("3_vcast_test.xml")
-root = tree.getroot()
-result = []
-
-for item in root.findall("message"):
-  line = {}
-  for child in item:
-     line[child.tag] = child.text
-     result.append(line)
- 
-import csv
-fields = ['file', 'line', 'code', 'desc', 'type']
-with open("3_vcast_test.csv", "w", encoding='utf-8') as ptr:
-  writer = csv.DictWriter(ptr, fieldnames=fields)
-  writer.writeheader()
-  writer.writerows(result)
-"""
+#
+# Converts XML Cleaned by 1st Step to CSV File and Remove left over duplicates
+#
 
 import os
 import sys
@@ -87,6 +56,3 @@ if __name__ == "__main__":
     main()
 
 
-#
-# Converts XML Cleaned by 1st Step to CSV File and Remove left over duplicates
-#
