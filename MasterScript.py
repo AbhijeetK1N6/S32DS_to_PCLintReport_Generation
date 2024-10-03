@@ -1,3 +1,6 @@
+#Code By : K1N6
+#Source Code available on GitHub : https://github.com/AbhijeetK1N6/S32DS_to_PCLintReport_Generation/edit/main/MasterScript.py
+
 import sys
 import os
 import re
@@ -135,6 +138,9 @@ def csv_to_excel(input_csv_file, excel_output_file):
     except FileNotFoundError:
         print(f"Error: File '{input_csv_file}' not found.")
 
+#Code By : K1N6
+#Source Code available on GitHub : https://github.com/AbhijeetK1N6/S32DS_to_PCLintReport_Generation/edit/main/MasterScript.py
+
 # Main execution
 if __name__ == "__main__":
     try:
@@ -170,3 +176,6 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f"Error: {e}")
+        
+#Code By : K1N6
+#Source Code available on GitHub : https://github.com/AbhijeetK1N6/S32DS_to_PCLintReport_Generation/edit/main/MasterScript.py
